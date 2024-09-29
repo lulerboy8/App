@@ -1,0 +1,6 @@
+return {
+    ["Olympic-ABCDE-12345-FGHIJ-67890"] = nil,
+    ["Olympic-KLMNO-54321-PQRST-09876"] = "wdsawwfwdds",
+    ["Olympic-UVWXY-11223-ZABCD-44556"] = "595421DA-924B-4D39-8FDC-37515E9FA7E6",
+    -- Add more keys as needed
+}
