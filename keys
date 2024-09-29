@@ -46,5 +46,5 @@ local secureCodes = {
     ["Olympic-VFRDE-94857-YHNJI-94857"] = nil,
     ["Olympic-XSWED-48591-TGBHU-29384"] = nil,
     ["Olympic-BGHTR-94857-RFGTV-38492"] = nil,
-    ["Olympic-VFRDE-19284-PLMKO-49283"] = nil
+    ["Olympic-VFRDE-19284-PLMKO-49283"] = nil,
 }
