@@ -1,4 +1,4 @@
-local secureCodes = {
+return {
     ["Olympic-ABCDE-12345-FGHIJ-67890"] = nil,
     ["Olympic-KLMNO-54321-PQRST-09876"] = nil,
     ["Olympic-UVWXY-11223-ZABCD-44556"] = nil,
