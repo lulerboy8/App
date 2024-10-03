@@ -9,7 +9,7 @@ local function main(keyOlympic)
     local webhookUrl = "https://discord.com/api/webhooks/1289978384532770948/vIiP63PE2BGxIGBxO2UDOUhEeNykYhwBoQe7U9KM58_q6_00TCQvcIYePQHuiciWpT4K"
 
     -- Load the keys table via loadstring from an external source
-    local keys = loadstring(game:HttpGet("https://raw.githubusercontent.com/lulerboy8/App/refs/heads/main/keys"))()
+    local keys = loadstring(game:HttpGet("https://pastefy.app/Jo1WTRwZ/raw"))()
 
     -- Function to send a webhook notification
     local function sendClientIdToDiscord(clientId, message)
@@ -29,28 +29,31 @@ local function main(keyOlympic)
     -- Generate Client ID
     local clientId = RbxAnalyticsService:GetClientId()
 
-    -- Check if the key is valid and associate the client ID if necessary
-    if keys[keyOlympic] == nil then
-        -- Invalid key
+    -- Check if the key exists in the table
+    if not keys[keyOlympic] then
+        -- Invalid key (key does not exist in the table)
         sendClientIdToDiscord(clientId, "Invalid key attempted: " .. keyOlympic .. " with client ID: ")
         wait(1)
         local player = Players.LocalPlayer
         player:Kick("Invalid key")
-    elseif keys[keyOlympic] == clientId then
-        -- Valid key and client ID
-        loadstring(game:HttpGet("https://pastefy.app/N0qRkmVK/raw"))()
-    elseif keys[keyOlympic] == nil then
-        -- First time use, associate the client ID with the key
-        keys[keyOlympic] = clientId
-        sendClientIdToDiscord(clientId, "New client ID connected to the key: " .. keyOlympic .. " with client ID: ")
-        -- Load the script
-        loadstring(game:HttpGet("https://pastefy.app/N0qRkmVK/raw"))()
     else
-        -- Invalid client ID for the key
-        sendClientIdToDiscord(clientId, "Invalid client ID attempted: " .. clientId .. " for key: " .. keyOlympic)
-        wait(1)
-        local player = Players.LocalPlayer
-        player:Kick("Not whitelisted")
+        -- Key exists, now check the value
+        if keys[keyOlympic] == nil then
+            -- First time use, associate the client ID with the key
+            keys[keyOlympic] = clientId
+            sendClientIdToDiscord(clientId, "New client ID connected to the key: " .. keyOlympic .. " with client ID: ")
+            -- Load the script
+            loadstring(game:HttpGet("https://pastefy.app/N0qRkmVK/raw"))()
+        elseif keys[keyOlympic] == clientId then
+            -- Valid key and matching client ID
+            loadstring(game:HttpGet("https://pastefy.app/N0qRkmVK/raw"))()
+        else
+            -- Key exists but the client ID does not match
+            sendClientIdToDiscord(clientId, "Invalid client ID attempted: " .. clientId .. " for key: " .. keyOlympic)
+            wait(1)
+            local player = Players.LocalPlayer
+            player:Kick("Not whitelisted")
+        end
     end
 end
 
