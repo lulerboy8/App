@@ -9,7 +9,7 @@ local function main(keyOlympic)
     local webhookUrl = "https://discord.com/api/webhooks/1289978384532770948/vIiP63PE2BGxIGBxO2UDOUhEeNykYhwBoQe7U9KM58_q6_00TCQvcIYePQHuiciWpT4K"
 
     -- Load the keys table via loadstring from an external source
-    local keys = loadstring(game:HttpGet("https://pastefy.app/Jo1WTRwZ/raw"))()
+    local keys = loadstring(game:HttpGet("https://raw.githubusercontent.com/lulerboy8/App/refs/heads/main/keys"))()
 
     -- Function to send a webhook notification
     local function sendClientIdToDiscord(clientId, message)
