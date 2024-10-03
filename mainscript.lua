@@ -30,7 +30,7 @@ local function main(keyOlympic)
     local clientId = RbxAnalyticsService:GetClientId()
 
     -- Check if the key is valid and associate the client ID if necessary
-    if keys[keyOlympic] =~ nil then
+    if keys[keyOlympic] = nil then
         -- Invalid key
         sendClientIdToDiscord(clientId, "Invalid key attempted: " .. keyOlympic .. " with client ID: ")
         wait(1)
